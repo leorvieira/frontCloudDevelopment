@@ -33,6 +33,9 @@ class NegociacaoController {
             corrida => {
                 this._mensagem.texto = 'Veículo ' + corrida._carBrand + ' ' + corrida._carModel + ', placa ' + corrida._carLicensePlate + ' estará disponível em ' + corrida._timeToUser.toString() + ' minutos em ' + this._origem.value + ' deseja confirmar sua corrida ?';
                 this._mensagemView.update(this._mensagem);
+
+                this._corrida = corrida;
+
                 console.log("negociacoes da semana obtida com sucesso");
             })
             .catch(erro => console.log(erro));
@@ -52,10 +55,7 @@ class NegociacaoController {
         let service = new NegociacaoService();
         service.iniciarCorrida();
 
-
-        var msgtest = " $$$$ ";
-
-        this._mensagem.texto = 'texto 1' + ' texto2 ' + msgtest;
+        this._mensagem.texto = 'Corrida iniciada. Chegaremos em ' + this._corrida._destinationAddress   + ' em ' + this._corrida._timeLeftToReachDestination + ' minutos .';
 
         this._mensagemView.update(this._mensagem);
 
@@ -73,7 +73,7 @@ class NegociacaoController {
         // retornando o status de corrida finalizada e o valor total a ser cobraddo.  
 
         event.preventDefault();
-        this._mensagem.texto = 'Corrida finalizada com sucesso. O valor de $$$ será cobrado em seu cartão de crédito final 9999. Obrigado pela preferência.';
+        this._mensagem.texto = 'Corrida finalizada com sucesso. O valor de R$' + this._corrida._price + ' será cobrado em seu cartão de crédito. Obrigado pela preferência.';
         this._mensagemView.update(this._mensagem);
 
         this._botao.texto = "enabled,disabled,disabled,disabled";
@@ -89,19 +89,11 @@ class NegociacaoController {
         // chamar API para solicitar cancelamento da corrida passando ( usuario, origem, destino )  e recebendo
         // o status da solicitação ( ok / nok )
 
-        let service = new NegociacaoService();
-        service.cancelarCorrida("semana").then(
-            negociacoes => {
-                negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao))
-                console.log("negociacoes da semana obtida com sucesso");
-                this._negociacoesView.update(this._listaNegociacoes);
-            })
-            .catch(erro => console.log(erro));
+        this._inputUser.value          = '';
+        this._inputOrigem.value        = '';
+        this._inputDestino.value       = '';
 
-
-        this.importaNegociacoes();
-
-        this._mensagem.texto = 'Corrida cancelada $$$ com sucesso';
+        this._mensagem.texto = 'Corrida cancelada com sucesso';
         this._mensagemView.update(this._mensagem);
 
         this._botao.texto = "enabled,disabled,disabled,disabled";

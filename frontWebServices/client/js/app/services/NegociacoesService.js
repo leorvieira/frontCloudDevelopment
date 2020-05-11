@@ -5,8 +5,12 @@ class NegociacaoService {
         this._http = new HttpService();
     }
 
+<<<<<<< HEAD
     solicitarCorrida(origem, destino) {
         let url = "https://rws-autonomous-vehicle-fleet.herokuapp.com/course?departureAddress=" + origem.replace(/( )+/g, '%20') + "&destinationAddress=" + destino.replace(/( )+/g, '%20') + "&userId=1"
+=======
+    solicitarCorrida(url) {
+>>>>>>> b815328f702a176817d27ba966e45c5bac8171ca
         return new Promise((resolve, reject) => {
             this._http.post(url).then
                 (objeto => {
