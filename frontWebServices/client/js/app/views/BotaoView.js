@@ -4,7 +4,6 @@ class BotaoView extends View {
     super(elemento);
   }
 
-<<<<<<< HEAD
   template(model) {
 
     return `<button class="btn btn-primary" type="submit"" ${StringHelper.splitString(model.texto, 0)}>Solicitar Corrida</button>
@@ -12,12 +11,4 @@ class BotaoView extends View {
                 <button class="btn btn-primary" type="submit" onclick="negociacaoController.cancelaCorrida(event)" ${StringHelper.splitString(model.texto, 3)}>Cancelar Corrida</button>`;
 
   }
-=======
-       return  `<button class="btn btn-primary" type="submit"" ${StringHelper.splitString(model.texto,0)}>Solicita Corrida</button>
-                <button class="btn btn-primary" type="submit" onclick="negociacaoController.iniciaCorrida(event)" ${StringHelper.splitString(model.texto,1)}>Iniciar Corrida</button>
-                <button class="btn btn-primary" type="submit" onclick="negociacaoController.finalizaCorrida(event)" ${StringHelper.splitString(model.texto,2)}>Finalizar Corrida</button>
-                <button class="btn btn-primary" type="submit" onclick="negociacaoController.cancelaCorrida(event)" ${StringHelper.splitString(model.texto,3)}>Cancelar Corrida</button>`;
-   
-    }
->>>>>>> b815328f702a176817d27ba966e45c5bac8171ca
 }
