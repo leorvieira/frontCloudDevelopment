@@ -4,11 +4,11 @@ class NegociacaoController {
 
         let $ = document.querySelector.bind(document);
 
-
-
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
+        this._origem = $('#origem');
+        this._destino = $('#destino')
 
         this._listaNegociacoes = new ListaNegociacoes();
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
@@ -19,27 +19,19 @@ class NegociacaoController {
         this._mensagemView.update(this._mensagem);
 
         this._botao = new Botao();
-        this._botao.texto = "disabled,disabled,disabled,disabled";
+        this._botao.texto = "enabled,disabled,disabled,disabled";
         this._botaoView = new BotaoView($('#botao'));
         this._botaoView.update(this._botao);
-
-        //   this._corrida = new Corrida();
-        //   this._corridaView = new CorridaView($('#corridaView'));
-        //   this._corridaView.update(this._corrida);
-
     }
 
     solicitarCorrida(event) {
 
         event.preventDefault();
 
-        // chamar API para solicitar veiculo passando ( usuario, origem, destino ) e 
-        // retornando ( usuario, origem, destino, descrição do carro e tempo em que o carro estará disponível na origem)
-
         let service = new NegociacaoService();
-        service.solicitarCorrida().then(
+        service.solicitarCorrida(this._origem.value, this._destino.value).then(
             corrida => {
-                this._mensagem.texto = 'Veículo ' + corrida._carBrand + ', placa ' + corrida._carLicensePlate + ' estará disponível em N minutos em ORIGEM...';
+                this._mensagem.texto = 'Veículo ' + corrida._carBrand + ' ' + corrida._carModel + ', placa ' + corrida._carLicensePlate + ' estará disponível em ' + corrida._timeToUser.toString() + ' minutos em ' + this._origem.value + ' deseja confirmar sua corrida ?';
                 this._mensagemView.update(this._mensagem);
                 console.log("negociacoes da semana obtida com sucesso");
             })
@@ -47,10 +39,6 @@ class NegociacaoController {
 
         this._botao.texto = "disabled,enabled,disabled,enabled";
         this._botaoView.update(this._botao);
-
-        // this._mensagem.texto = 'Veículo X, placa Y estará disponível em N minutos em ORIGEM...';
-
-
     }
 
 

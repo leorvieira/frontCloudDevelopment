@@ -2,14 +2,13 @@
 class NegociacaoService {
 
     constructor() {
-
         this._http = new HttpService();
-
     }
 
-    solicitarCorrida() {
+    solicitarCorrida(origem, destino) {
+        let url = "https://rws-autonomous-vehicle-fleet.herokuapp.com/course?departureAddress=" + origem.replace(/( )+/g, '%20') + "&destinationAddress=" + destino.replace(/( )+/g, '%20') + "&userId=1"
         return new Promise((resolve, reject) => {
-            this._http.post('https://rws-autonomous-vehicle-fleet.herokuapp.com/course?departureAddress=rua%201&destinationAddress=rua%202&userId=1').then
+            this._http.post(url).then
                 (objeto => {
                     resolve(new Corrida(objeto._id, objeto._userId, objeto._vehicleId, objeto._price, objeto._departureAddress, objeto._destinationAddress, objeto._timeToUser, objeto._timeToDestination, objeto._timeLeftToReachDestination, objeto._timeLeftToReachUser, objeto._status, objeto._carBrand, objeto._carModel, objeto._carLicensePlate, objeto._localization))
                     console.log("Negociacoes importadas com sucesso.");
@@ -26,7 +25,7 @@ class NegociacaoService {
         return new Promise((resolve, reject) => {
             this._http.get('https://rws-autonomous-vehicle-fleet.herokuapp.com/vehicle/1').then
                 (corrida => {
-                    resolve(corrida.map(objeto => new Corrida(objeto.available, objeto.carBrand, ojbeto.carModel, objeto.carLicensePlate, objeto.localization)));
+                    resolve(corrida.map(objeto => new Corrida(objeto.available, objeto.carBrand, objeto.carModel, objeto.carLicensePlate, objeto.localization)));
                     console.log("corrida importada com sucesso.");
                     /*   this._mensagem.texto = 'Negociações importadas com sucesso.' ; 
                     this._negociacoesView.update( this._listaNegociacoes);

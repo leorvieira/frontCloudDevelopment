@@ -1,88 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>WebServices</title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/bootstrap-theme.css" />
-  </head>
-  <body class="container">
-    <h1>
-        <nav class="nav-bar">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                  <a>Veículos Autônomos</a>
-              </div>
-              <div class="nav navbar-nav navbar-right">
-                <form class="form-inline" >
-                    <input type="text" placeholder="Username" name="username" class="form-control">
-                    <input type="text" placeholder="Password" name="psw" class="form-control">
-                    <button class="btn btn-primary" type="submit" onclick="negociacaoController.validaLogin(event)">Login</button>
-                </form>
-              </div> 
-            </div>
-        </nav>
-    </h1>
-    <br></br>
 
-    <div id="mensagemView"></div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Veículos Autônomos</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/bootstrap-theme.css" />
+</head>
 
-    <form class="form" onsubmit="negociacaoController.solicitarCorrida(event)">
-      <div class="form-group">
-        <label for="data">Origem</label>
-        <input type="text" id="origem" class="form-control" value="São Paulo" required autofocus />
+<body class="container">
+  <h1>
+    <nav class="nav-bar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a>Veículos Autônomos</a>
+        </div>
       </div>
+    </nav>
+  </h1>
+  <br></br>
 
-      <div class="form-group">
-        <label for="quantidade">Destino</label>
-        <input type="text" id="destino" class="form-control" value="Santa Catarina" required/>
-      </div>
+  <div id="mensagemView"></div>
 
-      <div class="text-left">
+  <form class="form" onsubmit="negociacaoController.solicitarCorrida(event)">
+    <div class="form-group">
+      <label for="data">Origem</label>
+      <input type="text" id="origem" class="form-control" value="São Paulo" required autofocus />
+    </div>
 
-          <div id="botao"></div>
- <!--
+    <div class="form-group">
+      <label for="quantidade">Destino</label>
+      <input type="text" id="destino" class="form-control" value="Santa Catarina" required />
+    </div>
 
-          <button class="btn btn-primary" type="submit">Solicitar veículo</button>
-          <button class="btn btn-primary" type="submit" onclick="negociacaoController.iniciaCorrida(event)">Iniciar corrida</button>
-          <button class="btn btn-primary" type="submit" onclick="negociacaoController.finalizaCorrida(event)">Finalizar corrida</button>
-          <button class="btn btn-primary" type="submit" onclick="negociacaoController.cancelaCorrida(event)" disabled>Cancelar solicitação</button>
- -->         
-      </div>
+    <div class="text-left">
+      <div id="botao"></div>
+    </div>
 
-    </form>
+  </form>
 
-    <div class="text-center">
- 
-       <!-- <button onclick="negociacaoController.apaga()" class="btn btn-primary text-center" type="button">
+  <div class="text-center">
+
+    <!-- <button onclick="negociacaoController.apaga()" class="btn btn-primary text-center" type="button">
        //  Apagar
        // </button>
-       --> 
+       -->
 
-    </div>
-    <br />
-    <br />
+  </div>
+  <br />
+  <br />
 
-     <div id="negociacoesView" style="display: none;"></div>
+  <div id="negociacoesView" style="display: none;"></div>
 
-    <script src="js/app/models/Negociacao.js"></script>
-    <script src="js/app/models/ListaNegociacoes.js"></script>
-    <script src="js/app/models/Mensagem.js"></script>
-    <script src="js/app/models/Corrida.js"></script>
-    <script src="js/app/controllers/NegociacaoController.js"></script>
-    <script src="js/app/helpers/DateHelper.js"></script>
-    <script src="js/app/helpers/StringHelper.js"></script>
-    <script src="js/app/views/View.js"></script>
-    <script src="js/app/views/NegociacoesView.js"></script>
-    <script src="js/app/views/MensagemView.js"></script>
-    <script src="js/app/models/Botao.js"></script>
-    <script src="js/app/views/BotaoView.js"></script>
+  <script src="js/app/models/Negociacao.js"></script>
+  <script src="js/app/models/ListaNegociacoes.js"></script>
+  <script src="js/app/models/Mensagem.js"></script>
+  <script src="js/app/models/Corrida.js"></script>
+  <script src="js/app/controllers/NegociacaoController.js"></script>
+  <script src="js/app/helpers/DateHelper.js"></script>
+  <script src="js/app/helpers/StringHelper.js"></script>
+  <script src="js/app/views/View.js"></script>
+  <script src="js/app/views/NegociacoesView.js"></script>
+  <script src="js/app/views/MensagemView.js"></script>
+  <script src="js/app/models/Botao.js"></script>
+  <script src="js/app/views/BotaoView.js"></script>
 
-    <script src="js/app/services/HttpService.js"></script>
-    <script src="js/app/services/NegociacoesService.js"></script>
+  <script src="js/app/services/HttpService.js"></script>
+  <script src="js/app/services/NegociacoesService.js"></script>
 
-    <script>
-      let negociacaoController = new NegociacaoController();
-    </script>
-  </body>
+  <script>
+    let negociacaoController = new NegociacaoController();
+  </script>
+</body>
+
 </html>
