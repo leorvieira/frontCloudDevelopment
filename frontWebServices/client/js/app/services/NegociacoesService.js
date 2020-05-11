@@ -7,9 +7,9 @@ class NegociacaoService {
 
     }
 
-    solicitarCorrida() {
+    solicitarCorrida(url) {
         return new Promise((resolve, reject) => {
-            this._http.post('https://rws-autonomous-vehicle-fleet.herokuapp.com/course?departureAddress=rua%201&destinationAddress=rua%202&userId=1').then
+            this._http.post(url).then
                 (objeto => {
                     resolve(new Corrida(objeto._id, objeto._userId, objeto._vehicleId, objeto._price, objeto._departureAddress, objeto._destinationAddress, objeto._timeToUser, objeto._timeToDestination, objeto._timeLeftToReachDestination, objeto._timeLeftToReachUser, objeto._status, objeto._carBrand, objeto._carModel, objeto._carLicensePlate, objeto._localization))
                     console.log("Negociacoes importadas com sucesso.");

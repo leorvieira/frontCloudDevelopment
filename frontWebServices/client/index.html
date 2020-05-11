@@ -15,7 +15,7 @@
               </div>
               <div class="nav navbar-nav navbar-right">
                 <form class="form-inline" >
-                    <input type="text" placeholder="Username" name="username" class="form-control">
+                    <input type="text" id="usuario" placeholder="Username" name="username" class="form-control">
                     <input type="text" placeholder="Password" name="psw" class="form-control">
                     <button class="btn btn-primary" type="submit" onclick="negociacaoController.validaLogin(event)">Login</button>
                 </form>
@@ -30,12 +30,12 @@
     <form class="form" onsubmit="negociacaoController.solicitarCorrida(event)">
       <div class="form-group">
         <label for="data">Origem</label>
-        <input type="text" id="origem" class="form-control" value="São Paulo" required autofocus />
+        <input type="text" id="origem" class="form-control" placeholder="São Paulo" required autofocus />
       </div>
 
       <div class="form-group">
         <label for="quantidade">Destino</label>
-        <input type="text" id="destino" class="form-control" value="Santa Catarina" required/>
+        <input type="text" id="destino" class="form-control" placeholder="Santa Catarina" required/>
       </div>
 
       <div class="text-left">
@@ -82,7 +82,7 @@
     <script src="js/app/services/NegociacoesService.js"></script>
 
     <script>
-      let negociacaoController = new NegociacaoController();
+      let negociacaoController = new NegociacaoController(usuario, origem, destino);
     </script>
   </body>
 </html>

@@ -1,14 +1,15 @@
 class NegociacaoController {
 
-    constructor() {
+    constructor(inputUser, inputOrigem, inputDestino) {
 
         let $ = document.querySelector.bind(document);
 
 
+        this._corrida = new Corrida();
 
-        this._inputData = $('#data');
-        this._inputQuantidade = $('#quantidade');
-        this._inputValor = $('#valor');
+        this._inputUser          = $('#usuario');
+        this._inputOrigem        = $('#origem');
+        this._inputDestino       = $('#destino');
 
         this._listaNegociacoes = new ListaNegociacoes();
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
@@ -35,12 +36,21 @@ class NegociacaoController {
 
         // chamar API para solicitar veiculo passando ( usuario, origem, destino ) e 
         // retornando ( usuario, origem, destino, descrição do carro e tempo em que o carro estará disponível na origem)
+        // let url = 'https://rws-autonomous-vehicle-fleet.herokuapp.com/course?departureAddress='++'rua%201'++'&destinationAddress='++'rua%202'++'&userId='++'1';
+
 
         let service = new NegociacaoService();
-        service.solicitarCorrida().then(
+    
+        let url = 'https://rws-autonomous-vehicle-fleet.herokuapp.com/course?departureAddress='+this._inputOrigem.value+'&destinationAddress='+this._inputDestino.value+'&userId='+this._inputUser.value;
+        console.log("url=> "+url);
+
+        service.solicitarCorrida(url).then(
             corrida => {
-                this._mensagem.texto = 'Veículo ' + corrida._carBrand + ', placa ' + corrida._carLicensePlate + ' estará disponível em N minutos em ORIGEM...';
+                this._mensagem.texto = 'Veículo ' + corrida._carBrand + ', placa ' + corrida._carLicensePlate + ' estará disponível em ' + corrida._timeLeftToReachUser + '  minutos em ' + corrida._departureAddress + '. Para confirmar, pressione Iniciar Corrida';
                 this._mensagemView.update(this._mensagem);
+
+                this._corrida = corrida;
+
                 console.log("negociacoes da semana obtida com sucesso");
             })
             .catch(erro => console.log(erro));
@@ -64,10 +74,7 @@ class NegociacaoController {
         let service = new NegociacaoService();
         service.iniciarCorrida();
 
-
-        var msgtest = " $$$$ ";
-
-        this._mensagem.texto = 'texto 1' + ' texto2 ' + msgtest;
+        this._mensagem.texto = 'Corrida iniciada. Chegaremos em ' + this._corrida._destinationAddress   + ' em ' + this._corrida._timeLeftToReachDestination + ' minutos .';
 
         this._mensagemView.update(this._mensagem);
 
@@ -85,7 +92,7 @@ class NegociacaoController {
         // retornando o status de corrida finalizada e o valor total a ser cobraddo.  
 
         event.preventDefault();
-        this._mensagem.texto = 'Corrida finalizada com sucesso. O valor de $$$ será cobrado em seu cartão de crédito final 9999. Obrigado pela preferência.';
+        this._mensagem.texto = 'Corrida finalizada com sucesso. O valor de R$' + this._corrida._price + ' será cobrado em seu cartão de crédito. Obrigado pela preferência.';
         this._mensagemView.update(this._mensagem);
 
         this._botao.texto = "enabled,disabled,disabled,disabled";
@@ -101,19 +108,11 @@ class NegociacaoController {
         // chamar API para solicitar cancelamento da corrida passando ( usuario, origem, destino )  e recebendo
         // o status da solicitação ( ok / nok )
 
-        let service = new NegociacaoService();
-        service.cancelarCorrida("semana").then(
-            negociacoes => {
-                negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao))
-                console.log("negociacoes da semana obtida com sucesso");
-                this._negociacoesView.update(this._listaNegociacoes);
-            })
-            .catch(erro => console.log(erro));
+        this._inputUser.value          = '';
+        this._inputOrigem.value        = '';
+        this._inputDestino.value       = '';
 
-
-        this.importaNegociacoes();
-
-        this._mensagem.texto = 'Corrida cancelada $$$ com sucesso';
+        this._mensagem.texto = 'Corrida cancelada com sucesso';
         this._mensagemView.update(this._mensagem);
 
         this._botao.texto = "enabled,disabled,disabled,disabled";
