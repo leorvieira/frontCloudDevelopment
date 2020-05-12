@@ -1,4 +1,4 @@
-class NegociacaoController {
+class CorridaController {
 
     constructor() {
 

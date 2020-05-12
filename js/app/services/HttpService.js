@@ -1,4 +1,5 @@
 class HttpService {
+
     get(url) {
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();
@@ -6,15 +7,10 @@ class HttpService {
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
-                        console.log(xhr.responseText)
-                        var obj = JSON.parse(xhr.responseText)
-                        console.log(obj.available)
-                        console.log(obj.carBrand)
-
-                        resolve(JSON.parse(xhr.responseText)
-                            .map(objeto => new Veiculo(objeto.available, objeto.carBrand, ojbeto.carModel, objeto.carLicensePlate, objeto.localization)))
+                        let objeto = JSON.parse(xhr.responseText);
+                        resolve(new Corrida(objeto.id, objeto.userId, objeto.vehicleId, objeto.price, objeto.departureAddress, objeto.destinationAddress, objeto.timeToUser, objeto.timeToDestination, objeto.timeLeftToReachDestination, objeto.timeLeftToReachUser, objeto.status, objeto.carBrand, objeto.carModel, objeto.carLicensePlate, objeto.localization))
                     } else {
-                        reject("deu ruim");
+                        reject("Erro ao consultar API")
                     }
                 }
             }
@@ -32,7 +28,24 @@ class HttpService {
                         let objeto = JSON.parse(xhr.responseText);
                         resolve(new Corrida(objeto.id, objeto.userId, objeto.vehicleId, objeto.price, objeto.departureAddress, objeto.destinationAddress, objeto.timeToUser, objeto.timeToDestination, objeto.timeLeftToReachDestination, objeto.timeLeftToReachUser, objeto.status, objeto.carBrand, objeto.carModel, objeto.carLicensePlate, objeto.localization))
                     } else {
-                        reject("deu ruim")
+                        reject("Erro ao consultar API")
+                    }
+                }
+            }
+            xhr.send()
+        });
+    }
+
+    put(url) {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open('PUT', url);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(true)
+                    } else {
+                        reject("Erro ao consultar API");
                     }
                 }
             }
