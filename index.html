@@ -9,6 +9,13 @@
   <style>
     .container1 {    display: flex;    overflow-x: auto;}
     .container1 img {    margin-right: 10px;}
+
+    img.resize {
+    width:5%; /* you can use % */
+    height: auto;
+}
+
+
   </style>
 </head>
 
@@ -40,48 +47,21 @@
     </nav>
 
 
+    <section>
+
+      
+    </section>
+
+
   </h1>
   <br></br>
  
   <br></br>
 
-  <div id="mensagemView"></div>
-
-  <form class="form" onsubmit="clienteController.consultaCliente(event)">
-
- <!--   
-    <div class="form-group">
-      <label for="data">Origem</label>
-      <input type="text" id="origem" class="form-control" placeholder="Av Ipiranga" required autofocus />
-    </div>
-
-    <div class="form-group">
-      <label for="quantidade">Destino</label>
-      <input type="text" id="destino" class="form-control" placeholder="Av São João" required />
-    </div>
-
-    <div class="text-left">
-      <div id="botao"></div>
-    </div>
-
-    -->
-
-  </form>
-
-
-
-  <div class="text-center">
-
-    <!-- <button onclick="corridaController.apaga()" class="btn btn-primary text-center" type="button">
-       //  Apagar
-       // </button>
-       -->
-
-  </div>
   <br />
   <br />
 
-  <div id="corridaView" style="display: none;"></div>
+
 
   <script src="js/app/models/Mensagem.js"></script>
   <script src="js/app/models/Cliente.js"></script>
@@ -99,5 +79,13 @@
     let corridaController = new ClienteController();
   </script>
 </body>
+
+
+
+<footer>
+    <img src = "images/logo.jpg" class="resize">
+    <p class = "copyright" >&copy; Copyright Eventos S.A. - 2021</p>
+</div>
+</footer>
 
 </html>
