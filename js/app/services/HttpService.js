@@ -1,5 +1,39 @@
 class HttpService {
 
+
+/*
+    getE(url) {
+
+        return fetch(url)
+            .then(res => this._handleErrors(res))
+            .then(res => res.json());
+
+    }
+*/
+
+    getE(url) {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.responseText)
+                        .map(objeto => new ListaEventos(objeto.id_evento, objeto.descricao_evento)))
+                    } else {
+                        if (xhr.status == 404 ) {
+                            reject("Eventos não encontrados.")       
+                        }else{
+                            reject("Erro ao consultar API.")     
+                        }
+                        
+                    }
+                }
+            }
+            xhr.send()
+        });
+    }
+
     get(url) {
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();

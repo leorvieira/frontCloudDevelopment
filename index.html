@@ -6,6 +6,7 @@
   <title>Microserviços</title>
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/bootstrap-theme.css" />
+  <link rel="stylesheet" href="css/mystyle.css" />
   <style>
     .container1 {    display: flex;    overflow-x: auto;}
     .container1 img {    margin-right: 10px;}
@@ -13,20 +14,128 @@
     img.resize {
     width:5%; /* you can use % */
     height: auto;
+    }
+
+  </style>
+
+<!--        style for select with check boxes -->
+
+  <style>
+      .multiselect {
+  width: 40px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 10px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
 }
 
 
   </style>
+  <style>
+    /* The container */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 12px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Hide the browser's default checkbox */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+    
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+    
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
+    
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+      display: block;
+    }
+    
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    </style>
+
 </head>
 
 <body class="container">
 
   <h1>
-
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default">
         <div class="navbar-header">
-          <img src="/images/logo.jpg" width="30" height="30" alt="">
+
         </div>
         
         <div class="container-fluid">
@@ -38,7 +147,7 @@
             </form>
           </div> 
           <div class="nav navbar-nav navbar-right"> 
-            <form class="form-inline">
+            <form class="form-inline" >
                 <button class="btn btn-primary" type="submit">Login</button>
                 <button class="btn btn-primary" type="submit">Signup</button>
             </form>
@@ -46,46 +155,203 @@
         </div>
     </nav>
 
+    <div id="mensagemView"></div>
+  
+    <div id="eventosView"></div>
+
+    <div id="opcaoEventosView"></div> 
+
+<!--
+    
+
+    <form>
+      <section>
+        <legend>Escolha as opções do evento escolhido</legend>
+      <div class="multiselect">
+        <div class="selectBox" onclick="showCheckboxes()">
+          <select>
+            <option>          </option>
+          </select>
+          <div class="overSelect"></div>
+        </div>
+        <div id="checkboxes">
+          <optgroup label="optgroup1">
+            <label for="one">
+            <input type="checkbox" id="one" />First checkbox</label>
+            <label for="two">
+            <input type="checkbox" id="two" />Second checkbox</label>
+          </optgroup>  
+          <optgroup label="optgroup2">
+            <label for="three">
+            <input type="checkbox" id="three" />Third checkbox</label>
+            <label for="four">
+            <input type="checkbox" id="four" />Fourth checkbox</label>
+          </optgroup>
+        </div>
+      </div>
+    </section>
+    </form>
+
 
     <section>
+      <legend>Escolha as opções do evento escolhido</legend>
+      <label for="quantidade">Comida</label>
+      <label class="container" onchange="mainController.enviaMsg(1)">One
+        <input type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Two
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label for="quantidade">Bebidas</label>
+      <label class="container">Three
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Four
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      </section>
+
+  -->
+
+
+  </br><br>
+  </br><br>
+
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 4</div>
+          <img src="images/imgEventos1.png" style="width:100%">
+          <div class="text">Churrascos</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 4</div>
+          <img src="images/imgEventos2.png" style="width:100%">
+          <div class="text">Casamentos</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 4</div>
+          <img src="images/imgEventos3.png" style="width:100%">
+          <div class="text">Shows</div>
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="images/imgEventos4.png" style="width:100%">
+            <div class="text">Aniversários</div>
+          </div>
+        
+        </div>
+
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
 
       
     </section>
-
+ 
 
   </h1>
-  <br></br>
- 
-  <br></br>
-
-  <br />
-  <br />
-
-
-
+  
   <script src="js/app/models/Mensagem.js"></script>
   <script src="js/app/models/Cliente.js"></script>
   <script src="js/app/controllers/ClienteController.js"></script>
   <script src="js/app/controllers/FornecedorController.js"></script>
+  <script src="js/app/controllers/MainController.js"></script>
   <script src="js/app/helpers/StringHelper.js"></script>
   <script src="js/app/views/View.js"></script>
   <script src="js/app/views/MensagemView.js"></script>
+  <script src="js/app/views/EventosView.js"></script>
+  <script src="js/app/views/OpcaoEventosView.js"></script>
   <script src="js/app/models/Botao.js"></script>
+  <script src="js/app/models/Evento.js"></script>
+  <script src="js/app/models/OpcaoEvento.js"></script>
+  <script src="js/app/models/ListaEventos.js"></script>
+  <script src="js/app/models/ListaOpcaoEventos.js"></script>
   <script src="js/app/views/BotaoView.js"></script>
   <script src="js/app/services/HttpService.js"></script>
   <script src="js/app/services/ClienteService.js"></script>
+  <script src="js/app/services/MainService.js"></script>
 
   <script>
-    let corridaController = new ClienteController();
+    let mainController = new MainController();
   </script>
+
+
+
+  <script>
+
+    // carrega opcoes de eventos           
+
+        var expanded = false;
+        function showCheckboxes() {
+        var checkboxes = document.getElementById("checkboxes");
+        if (!expanded) {
+            checkboxes.style.display = "block";
+            expanded = true;
+        } else {
+            checkboxes.style.display = "none";
+            expanded = false;
+        }
+        }
+
+    // carrega eventos
+
+        let elemento = document.getElementById("eventosView");
+        let listaEventos = new ListaEventos();
+        let eventosView = new EventosView(elemento);
+        let service = new MainService();
+        service
+            .obterEventos()
+            .then(  eventos => 
+                    eventos.map( 
+                      evento => { 
+                        listaEventos.adiciona(evento);  
+                        console.log(listaEventos);
+                        eventosView.update(listaEventos);
+                  } 
+            ))
+            .catch(erro => {
+                console.log("erro = "+erro);
+                return;
+            });
+  </script>
+
+  <script>
+    var slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 5000); // Change image every 3 seconds
+    }
+    </script>
 </body>
-
-
 
 <footer>
     <img src = "images/logo.jpg" class="resize">
     <p class = "copyright" >&copy; Copyright Eventos S.A. - 2021</p>
-</div>
 </footer>
 
 </html>

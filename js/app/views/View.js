@@ -9,6 +9,8 @@ class View {
     }
 
     update(model) {
+        console.log("entrou no update view");
+        console.log(this.template(model));
         this._elemento.innerHTML = this.template(model);
     }
 }

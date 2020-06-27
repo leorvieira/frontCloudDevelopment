@@ -6,6 +6,7 @@
   <title>Clientes</title>
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/bootstrap-theme.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body class="container">
@@ -37,7 +38,7 @@
 
   <div id="mensagemView"></div>
 
-  <form class="form" onsubmit="clienteController.consultaCliente(event)">
+  <form onsubmit="clienteController.consultaCliente(event)">
 
     <div class="form-group">
       <label for="data">CPF</label>
@@ -55,23 +56,27 @@
       <label for="data">Telefone</label>
       <input type="text" id="telephone" class="form-control"   />
     </div>
-    <div class="form-group">
-      <label for="data">Endereço</label>
-      <input type="text" id="address" class="form-control" />
-    </div>
+    <div class="form-row">
+      <div class="form-group col-6">
+        <label for="data">Endereço</label>
+        <input type="text" id="address" class="form-control" />
+      </div>
    
-    <div class="form-group">  
-      <label for="data">Numero</label>
-      <input type="text" id="number" class="form-control"  />
-    </div> 
-    <div>  
+      <div class="form-group col-6">  
+        <label for="data">Numero</label>
+        <input type="text" id="number" class="form-control"  />
+      </div> 
+    </div>
+    
+    </div class="form-group">
       <label for="data">Complemento</label>
       <input type="text" id="addressComplement" class="form-control"  />
-    </div>
+    </div>  
     <div class="form-group">
-      <label for="quantidade">CEP</label>
+      <label for="data">CEP</label>
       <input type="text" id="cep" class="form-control"  />
     </div>
+   
   
     <div class="text-left">
       <div id="botao"></div>

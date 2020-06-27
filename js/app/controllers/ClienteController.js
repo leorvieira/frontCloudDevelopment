@@ -21,7 +21,7 @@ class ClienteController {
         this._botao.texto = "enabled,enabled,enabled,enabled";
         this._botaoView = new BotaoView($('#botao'));
         this._botaoView.update(this._botao);
-        this._cliente = new Cliente;
+//        this._cliente = new Cliente;
       
     }
 
@@ -86,6 +86,9 @@ class ClienteController {
         this._number.value = '';
         this._addressComplement.value = '';
         this._cep.value = '';
+
+        this._mensagem.texto = '';
+        this._mensagemView.update(this._mensagem);
 
 
         this._botao.texto = "enabled,enabled,enabled,enabled";
