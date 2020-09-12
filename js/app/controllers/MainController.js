@@ -42,17 +42,11 @@ class MainController {
             this._valorEvento = this._valorEvento - valor
         }
         
-        this._mensagem.texto = 'custo do evento = ' + this._valorEvento;
+        this._mensagem.texto = 'Custo do Evento ' + this._valorEvento;
         this._mensagemView.update(this._mensagem);
-
-
-
-
-
 
         this._botao.texto = "enabled,enabled,enabled,enabled";
         this._botaoView.update(this._botao);
-
 
     }
 
@@ -88,6 +82,9 @@ class MainController {
             
             this._mensagem.texto = "";
             this._mensagemView.update(this._mensagem);
+
+            document.getElementById("botao").style.display = "none";
+
 
         }else{
 

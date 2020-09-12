@@ -6,35 +6,63 @@
   <title>Fornecedores</title>
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/bootstrap-theme.css" />
+
+
+  <style>
+    .container1 {    display: flex;    overflow-x: auto;}
+    .container1 img {    margin-right: 10px;}
+
+    img.resize {
+    width:5%; /* you can use % */
+    height: auto;
+    }
+
+  </style>
+
+<style type="text/css">
+  .my-p {
+      font-style: italic;
+      font-weight: bold;
+      font-size: 50px;
+      color: blueviolet;
+      font-family: arial, sans-serif;
+    }
+  </style>
+
+
 </head>
 
 <body class="container">
+  <div class=my-container-fluid>
+    <img src = "images/logo.jpg" class="resize">
+    <div class="nav navbar-nav navbar-right"> 
+      <form class="form-inline" >
+          <button class="btn btn-primary" type="submit">Login</button>
+          <button class="btn btn-primary" type="submit">Signup</button>
+      </form>
+    </div> 
+  </div>
 
   <h1>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
- 
-        <div class="container-fluid">
-          <div class="nav navbar-nav"> 
-            <form class="form-inline">
-              <a href="index.html">Home</a>
-              <a href="clientes.html">Clientes</a>
-
-            </form>
-          </div> 
-          <div class="nav navbar-nav navbar-right"> 
-            <form class="form-inline">
-                <button class="btn btn-primary" type="submit">Login</button>
-                <button class="btn btn-primary" type="submit">Signup</button>
-            </form>
-          </div> 
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default">
+      <div class="navbar-header">
+      </div>
+      <div class="container-fluid">
+        <div class="nav navbar-nav">
+          <br>
+          <p class="my-p">Organize seu Evento totalmente online</p> 
+        </div> 
+      </div>
+      <form>
+            <a href="index.html">Home</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="fornecedores.html">Fornecedores</a>
+      </form>
+  </nav>
 
 
   </h1>
-  <br></br>
- 
-  <br></br>
+  <br>
 
   <div id="mensagemView"></div>
 
@@ -110,5 +138,10 @@
     let fornecedorController = new FornecedorController();
   </script>
 </body>
+
+<footer>
+  <img src = "images/logo.jpg" class="resize">
+  <p class = "copyright" >&copy; Copyright Eventos S.A. - 2021</p>
+</footer>
 
 </html>
