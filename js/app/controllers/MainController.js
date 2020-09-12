@@ -13,11 +13,17 @@ class MainController {
 
         this._listaOpcaoEventos = new ListaOpcaoEventos();
         this._opcaoEventosView = new OpcaoEventosView($('#opcaoEventosView'));
-        this._opcaoEventosView.update(this._listaOpcaoEventos);
+ //       this._opcaoEventosView.update(this._listaOpcaoEventos);
 
         this._mensagem = new Mensagem();
         this._mensagemView = new MensagemView($('#mensagemView'));
         this._mensagemView.update(this._mensagem);
+
+
+        this._botao = new BotaoP();
+        this._botao.texto = "disabled,enabled,enabled,enabled";
+        this._botaoView = new BotaoViewP($('#botao'));
+ //       this._botaoView.update(this._botao);
 
     }
 
@@ -38,6 +44,16 @@ class MainController {
         
         this._mensagem.texto = 'custo do evento = ' + this._valorEvento;
         this._mensagemView.update(this._mensagem);
+
+
+
+
+
+
+        this._botao.texto = "enabled,enabled,enabled,enabled";
+        this._botaoView.update(this._botao);
+
+
     }
 
     importarEventos() {
@@ -63,6 +79,18 @@ class MainController {
 
     importarOpcaoEventos(index) {
 
+        console.log("dentro do importar opcao eventos - index = "+index);
+        if ( index == 0 ){
+
+            this._valorEvento = 0 ;
+            this._listaOpcaoEventos.esvazia();
+            this._opcaoEventosView.update(this._listaOpcaoEventos);
+            
+            this._mensagem.texto = "";
+            this._mensagemView.update(this._mensagem);
+
+        }else{
+
         let elemento = document.getElementById("opcaoEventosView");
         let listaOpcaoEventos = new ListaOpcaoEventos();
         let opcaoEventosView = new OpcaoEventosView(elemento);
@@ -85,6 +113,7 @@ class MainController {
                 this._mensagemView.update(this._mensagem);
                 return;
             });
+        } 
     }
 }
    

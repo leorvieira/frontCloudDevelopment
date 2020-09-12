@@ -1,4 +1,4 @@
-class OpcaoEventosView extends View {
+class OpcaoEventosView2 extends View {
     
     constructor(elemento) {
         super(elemento);

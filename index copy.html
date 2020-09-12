@@ -2,18 +2,11 @@
 <html>
 
 <head>
-  
+  <meta charset="UTF-8" />
   <title>Microserviços</title>
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/bootstrap-theme.css" />
   <link rel="stylesheet" href="css/mystyle.css" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
   <style>
     .container1 {    display: flex;    overflow-x: auto;}
     .container1 img {    margin-right: 10px;}
@@ -171,125 +164,82 @@
       transform: rotate(45deg);
     }
     </style>
-    <style>
-        .topright { position: absolute; top: 5px; right: 5px; text-align: right; }
-        .my-bottom { position: absolute; bottom: 5px; left: 5px; text-align: left; }
-    </style>
 
 </head>
 
 <body class="container">
 
-  <div class=my-container-fluid>
-    <img src = "images/logo.jpg" class="resize">
-    <div class="nav navbar-nav navbar-right"> 
-      <form class="form-inline" >
-          <button class="btn btn-primary" type="submit">Login</button>
-          <button class="btn btn-primary" type="submit">Signup</button>
-      </form>
-    </div> 
-
-  </div>
-
   <h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default">
         <div class="navbar-header">
-        </div>
-        <div class="container-fluid">
-          <div class="nav navbar-nav">
-        </div> 
-        </div>
 
-            <form>
+        </div>
+        
+        <div class="container-fluid">
+          <div class="nav navbar-nav"> 
+            <form class="form-inline">
               <a href="index.html">Home</a>
               <a href="clientes.html">Clientes</a>
               <a href="fornecedores.html">Fornecedores</a>
             </form>
-
+          </div> 
+          <div class="nav navbar-nav navbar-right"> 
+            <form class="form-inline" >
+                <button class="btn btn-primary" type="submit">Login</button>
+                <button class="btn btn-primary" type="submit">Signup</button>
+            </form>
+          </div> 
+        </div>
     </nav>
-    <div class=container-fluid>
-      <div class=row>
-        <aside class="col-md-7">
-          <div id="eventosView"></div>
 
- 
-        </aside> 
-        <section class="col-md-5">
-          <div id="mensagemView"></div>
-          <div id="botao"></div>
-        </section> 
-      </div>    
-    </div>
-    <br>
-
-
-
-
-<!--
-
-    <div class="panel-group" id="accordion">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-            Collapsible Group 1</a>
-          </h4>
-        </div>
-        <div id="collapse1" class="panel-collapse collapse">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-            Collapsible Group 2</a>
-          </h4>
-        </div>
-        <div id="collapse2" class="panel-collapse collapse">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-            Collapsible Group 3</a>
-          </h4>
-        </div>
-        <div id="collapse3" class="panel-collapse collapse">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-            Collapsible Group 4</a>
-          </h4>
-        </div>
-        <div id="collapse4" class="panel-collapse collapse">
-          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</div>
-        </div>
-      </div>
-    </div> 
-
--->
+    <div id="mensagemView"></div>
   
-    <div id="opcaoEventosView"></div>
+    <div id="eventosView"></div>
+
     <br>
+
+    <div id="opcaoEventosView"></div> 
+
+    <aside class="aside">
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 4</div>
+          <img src="images/imgEventos1.png" style="width:100%">
+          <div class="text">Churrascos</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 4</div>
+          <img src="images/imgEventos2.png" style="width:100%">
+          <div class="text">Casamentos</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 4</div>
+          <img src="images/imgEventos3.png" style="width:100%">
+          <div class="text">Shows</div>
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="images/imgEventos4.png" style="width:100%">
+            <div class="text">Aniversários</div>
+          </div>
+        
+        </div>
+
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+
+      </div>
+    </aside>
+ 
+
   </h1>
   
   <script src="js/app/models/Mensagem.js"></script>
@@ -302,13 +252,12 @@
   <script src="js/app/views/MensagemView.js"></script>
   <script src="js/app/views/EventosView.js"></script>
   <script src="js/app/views/OpcaoEventosView.js"></script>
-  <script src="js/app/views/OpcaoEventosView2.js"></script>
-  <script src="js/app/models/BotaoP.js"></script>
+  <script src="js/app/models/Botao.js"></script>
   <script src="js/app/models/Evento.js"></script>
   <script src="js/app/models/OpcaoEvento.js"></script>
   <script src="js/app/models/ListaEventos.js"></script>
   <script src="js/app/models/ListaOpcaoEventos.js"></script>
-  <script src="js/app/views/BotaoViewP.js"></script>
+  <script src="js/app/views/BotaoView.js"></script>
   <script src="js/app/services/HttpService.js"></script>
   <script src="js/app/services/ClienteService.js"></script>
   <script src="js/app/services/MainService.js"></script>

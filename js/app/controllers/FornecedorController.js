@@ -21,6 +21,8 @@ class FornecedorController {
         this._botao.texto = "enabled,enabled,enabled,enabled";
         this._botaoView = new BotaoViewF($('#botao'));
         this._botaoView.update(this._botao);
+
+        
         this._fornecedor = new Fornecedor;
       
     }
