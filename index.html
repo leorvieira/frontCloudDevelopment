@@ -21,16 +21,55 @@
         color: blueviolet;
         font-family: arial, sans-serif;
       }
-    </style>
 
+    .teste1 {
+
+        background-image: url("images/imgEventos1.png");
+    }
+
+    .banner {
+    max-width: width 2000px;
+    height:150px;
+    object-fit: fill;
+    }
+
+    .black-font {
+      color: black;
+    }
+
+    </style>
 
   <style>
     .container1 {    display: flex;    overflow-x: auto;}
     .container1 img {    margin-right: 10px;}
 
     img.resize {
+    width:10%; /* you can use % */
+    height: auto;
+    position:relative;
+    padding-top: 0px;
+    padding-left:0px;
+    }
+
+    img.resize2 {
+    width:100%; /* you can use % */
+    height: auto;
+    }
+
+    img.resize3 {
     width:5%; /* you can use % */
     height: auto;
+    }
+
+    .cabec {
+      display: inline;
+    }
+
+    .botao-login-signup {
+      display:inline;
+      right:auto;
+      left:0;
+      float: right;
     }
 
   </style>
@@ -49,6 +88,7 @@
   width: 600px;
   font-size: 20px;
   border-style: hidden;
+  color: black;
   
 }
 
@@ -106,7 +146,7 @@
       margin-bottom: 15px;
       cursor: pointer;
       font-size: 10px;
-      color: blue;
+      color: black;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -153,7 +193,7 @@
     
     /* When the checkbox is checked, add a blue background */
     .container input:checked ~ .checkmark {
-      background-color: #2196F3;
+      background-color: red;
     }
     
     /* Create the checkmark/indicator (hidden when not checked) */
@@ -189,34 +229,27 @@
 </head>
 
 <body class="container">
-
-  <div class=my-container-fluid>
-    <img src = "images/logo.jpg" class="resize">
-    <div class="nav navbar-nav navbar-right"> 
-      <form class="form-inline" >
+  <div class="cabec">
+      <img src = "images/logoBBQ.jpg" class="resize">
+      <div class="botao-login-signup">
           <button class="btn btn-primary" type="submit">Login</button>
           <button class="btn btn-primary" type="submit">Signup</button>
-      </form>
-    </div> 
-
+      </div>
   </div>
-
+ 
+  <img class="banner resize2" src="images/churras10.jpg" />
   <h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default">
         <div class="navbar-header">
         </div>
-        <div class="container-fluid">
-          <div class="nav navbar-nav">
-            <br>
-            <p class="my-p">Organize seu Evento totalmente online</p> 
-          </div> 
-        </div>
         <form>
-              <a href="index.html">Home</a>
-              <a href="clientes.html">Clientes</a>
-              <a href="fornecedores.html">Fornecedores</a>
+              <a href="index.html" class="black-font">Home</a>
+              <a href="clientes.html" class="black-font">Clientes</a>
+              <a href="fornecedores.html" class="black-font">Fornecedores</a>
+
         </form>
     </nav>
+
     <div class=my-container-fluid>
       <div class=row>
         <aside class="col-md-7">
@@ -233,6 +266,9 @@
     <br>
     <div id="opcaoEventosView"></div>
   </h1>
+
+
+
   
   <script src="js/app/models/Mensagem.js"></script>
   <script src="js/app/models/Cliente.js"></script>
@@ -323,7 +359,7 @@
 </body>
 
 <footer>
-    <img src = "images/logo.jpg" class="resize">
+    <img src = "images/logoBBQ.jpg" class="resize3">
     <p class = "copyright" >&copy; Copyright Eventos S.A. - 2021</p>
 </footer>
 
