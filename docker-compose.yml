@@ -8,12 +8,13 @@ services:
     ports:
     - 8080:8080
     deploy:
-      replicas: 3
       placement:
         constraints:
           - node.role == manager
 
   static-web:
     image: docker1971/front-image-docker
+    deploy:
+      replicas: 3
     ports:
      - "8000:80"
