@@ -14,5 +14,7 @@ services:
 
   static-web:
     image: docker1971/front-image-docker
+    deploy:
+      replicas: 3
     ports:
      - "8000:80"
